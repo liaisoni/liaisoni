@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact Us</title>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/main2.css">
+
+<!--===============================================================================================-->
+</head>
+
+<body>
+<header class="default-header">
+			<div class="container-fluid">
+				<div class="header-wrap">
+					<div class="header-top d-flex justify-content-between align-items-center">
+						<div class="logo">
+							<a href="index.html"><img src="img/logo.png" alt=""></a>
+						</div>
+						<div class="main-menubar d-flex align-items-center">
+							<nav class="hide">
+								<a href="index.html">Home</a>
+								<a href="Services.html">Services</a>
+								<a href="contact.html">Contact</a>
+							</nav>
+							<div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+
+
+	<div class="container-contact100">
+
+		<div class="wrap-contact100">
+			<form id="test-form" class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Send Us A Message
+				</span>
+
+				<div class="wrap-input100 validate-input" data-validate="Please enter your name">
+					<input class="input100" type="text" name="form_field_1" placeholder="Full Name">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your email: e@a.x">
+					<input class="input100" type="text" name="form_field_2" placeholder="E-mail">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your social handle">
+					<input class="input100" type="text" name="form_field_3" placeholder="Social - IG:@MyUsername or Website:MyBlog.com">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your social handle">
+					<input class="input100" type="text" name="form_field_4" placeholder="Social - Fake">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+					<textarea class="input100" name="message" placeholder="Your Message"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button type="submit"id="submit-form" class="contact100-form-btn">
+						<span>
+							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+							Send
+						</span>
+					</button>	<p style="color:#F2F2F2"> ____</p>
+
+					<button class="contact100-form-btn">
+						<span>
+							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+							Go Back
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+<
+
+
+
+  <script>
+        $(document).ready(function(){
+          $.fn.serializeObject = function()
+              {
+               var o = {};
+               var a = this.serializeArray();
+               $.each(a, function() {
+                   if (o[this.name]) {
+                       if (!o[this.name].push) {
+                           o[this.name] = [o[this.name]];
+                       }
+                       o[this.name].push(this.value || '');
+                   } else {
+                       o[this.name] = this.value || '';
+                   }
+               });
+               return o;
+              };
+            var form = $('form#test-form'),
+              url = 'https://script.google.com/macros/s/AKfycbypvREwqv05lAbqzemFVdY7Q5hqf9Ir3AeeXievo3gxjGfJIfQW/exec';
+              form.submit(function(e){
+                e.preventDefault();
+              var jqxhr = $.ajax({
+                url: url,
+                method: "GET",
+                dataType: "json",
+                data: form.serializeObject()
+              });
+                $(".thanks").html("Thank you for getting in touch!").css("font-size","4rem");
+                $(".form-control").remove();
+                $("#submit").remove();
+              });
+            });
+        </script>
+
+	
+
+
+
+</body>
+</html>
